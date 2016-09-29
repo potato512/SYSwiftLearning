@@ -48,7 +48,7 @@ swift纯代码开发学习（foundation、UIKit等）
 
   *（22）UICollectionView
 
-  *（23）UIDatePicker
+  *（23）UIDatePicker——完成20160929
 
   *……
 
