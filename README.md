@@ -20,9 +20,9 @@ swift纯代码开发学习（foundation、UIKit等）
 
   *（8）UIScrollView
 
-  *（9）UIActivityIndicatorView
+  *（9）UIActivityIndicatorView——完成20160930
 
-  *（10）UIProgressView
+  *（10）UIProgressView——完成20160930
 
   *（11）UITextField——完成20160928
 
@@ -32,19 +32,19 @@ swift纯代码开发学习（foundation、UIKit等）
 
   *（14）UIPageControl
 
-  *（15）UISearchBar
+  *（15）UISearchBar——完成20160930
 
-  *（16）UISlider
+  *（16）UISlider——完成20160930
 
-  *（17）UISwitch
+  *（17）UISwitch——完成20160930
 
   *（18）UIStackView
 
-  *（19）UIWebView
+  *（19）UIWebView、WKWebView
 
   *（20）UIWindow
 
-  *（21）UISegmentController
+  *（21）UISegmentController——完成20160930
 
   *（22）UICollectionView
 
