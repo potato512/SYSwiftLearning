@@ -58,7 +58,7 @@ swift纯代码开发学习（foundation、UIKit等）
 
   *（2）UINavigationController
 
-  *（3）UITabbarController
+  *（3）UITabbarController——完成20161017
 
   *（4）UIImagePickerController
 
