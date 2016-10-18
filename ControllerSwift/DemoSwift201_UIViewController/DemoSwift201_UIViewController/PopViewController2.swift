@@ -21,7 +21,7 @@ class PopViewController2: UIViewController {
         // 视图自适度
         self.autoSize()
         
-        // 返回按钮
+        // 返回按钮（注意：self.navigationItem.backBarButtonItem 与 self.navigationItem.leftBarButtonItem的使用区别，如果视图控制器是present出来时，则设置backBarButtonItem无效。）
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "back", style: UIBarButtonItemStyle.Done, target: self, action: Selector("backClick"))
         
         // 进入下个视图控制器
