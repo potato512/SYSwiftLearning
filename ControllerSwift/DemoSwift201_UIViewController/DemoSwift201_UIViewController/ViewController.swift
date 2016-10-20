@@ -41,6 +41,8 @@ class ViewController: UIViewController {
         // 视图控制器背景颜色
         self.view.backgroundColor = UIColor.whiteColor()
     }
+    
+    
    
     
     func presentClick()

@@ -21,8 +21,8 @@ class TableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    override func init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        
-    }
+//    override func init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+//        
+//    }
 
 }
