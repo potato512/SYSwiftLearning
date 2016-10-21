@@ -52,7 +52,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.mainArray.addObject("edit Table")
         self.mainArray.addObject("sort Table")
         self.mainArray.addObject("group Table")
-        self.mainArray.addObject("custom Table")
+        self.mainArray.addObject("custom Table_header/footer/cell")
+        self.mainArray.addObject("custom Table_message")
     }
     
     // MARK: - 初始化tableview
@@ -118,29 +119,29 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             case 0:
                 let nextVC = NormalTableVC()
                 self.navigationController!.pushViewController(nextVC, animated: true)
-            break
             
             case 1:
                 let nextVC = EditTableVC()
                 self.navigationController!.pushViewController(nextVC, animated: true)
-            break
             
             case 2:
                 let nextVC = SortTableVC()
                 self.navigationController!.pushViewController(nextVC, animated: true)
-            break
             
             case 3:
                 let nextVC = GroupTableVC()
                 self.navigationController!.pushViewController(nextVC, animated: true)
-            break
             
             case 4:
                 let nextVC = CustomTableVC()
                 self.navigationController!.pushViewController(nextVC, animated: true)
-            break
             
-            default: break
+            case 5:
+                let nextVC = MessageTableVC()
+                self.navigationController!.pushViewController(nextVC, animated: true)
+            
+            default:
+                print("")
         }
     }
 
@@ -153,7 +154,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 2、可编辑列表视图（添加、删除、移动）
 3、带搜索列表视图（搜索、索引）
 4、群组列表视图（类似于QQ联系人分组，可打开，折叠）
-5、自定义cell列表视图（动态高度）
+5、自定义cell列表视图（动态高度：header/footer/cell）
+6、自定义cell列表视图（动态高度：message）
 
 */
 
