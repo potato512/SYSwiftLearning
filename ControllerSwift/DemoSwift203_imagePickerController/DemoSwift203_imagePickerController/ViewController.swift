@@ -83,10 +83,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             self.cameraShow()
         })
+        let videoAction = UIAlertAction(title: "摄像", style: UIAlertActionStyle.Default, handler: {
+            action in
+            print("摄像")
+            
+            self.videoShow()
+        })
         sheetView.addAction(cancelAction)
         sheetView.addAction(photosAction)
         sheetView.addAction(imageAction)
         sheetView.addAction(cameraAction)
+        sheetView.addAction(videoAction)
         self.presentViewController(sheetView, animated: true, completion: nil)
     }
     
@@ -293,7 +300,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // 拍照
         else if picker.isEqual(self.cameraPicker)
         {
+            let pickedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
             
+            // 显示图片
+            self.imageview.image = pickedImage
         }
         
         // 录像
@@ -357,15 +367,4 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 }
 
-/*
-
-
-
-http://www.cocoachina.com/ios/20140923/9730.html
-
-http://blog.sina.com.cn/s/blog_68edaff101019ppe.html
-
-http://blog.163.com/nijino_saki/blog/static/80092144201312825850485/
-
-*/
 
