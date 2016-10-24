@@ -12,6 +12,9 @@ import UIKit
 // cell复用标识
 let CustomCellIdentifier = "CustomCell"
 
+let width:CGFloat = UIScreen.mainScreen().bounds.width
+let contentFont:CGFloat = 12.0
+
 // 默认高度
 let originXY = 10.0
 let labelHeight = 30.0
@@ -67,7 +70,7 @@ class CustomCell: UITableViewCell {
     
     // 让单元格宽度始终为屏幕宽
     override var frame: CGRect
-        {
+    {
         get
         {
             return super.frame
@@ -75,7 +78,7 @@ class CustomCell: UITableViewCell {
         set (newFrame)
         {
             var frame = newFrame
-            frame.size.width = UIScreen.mainScreen().bounds.width
+            frame.size.width = width
             super.frame = frame
         }
     }
@@ -86,52 +89,63 @@ class CustomCell: UITableViewCell {
     {
         // 10.0 + 40.0 + 10.0 + 10.0 + 自适应?（40.0）
         
+        // 实例化
         if (self.titleLabel == nil)
         {
-            self.titleLabel = UILabel(frame: CGRectMake(CGFloat(originXY), CGFloat(originXY), (CGRectGetWidth(self.bounds) - CGFloat(originXY) * 2 - (CGFloat(originXY) - CGFloat(originXY) - 60.0)), CGFloat(labelHeight)))
+            self.titleLabel = UILabel(frame: CGRectZero)
             self.contentView.addSubview(self.titleLabel)
+            
             self.titleLabel.textColor = UIColor.blackColor()
             self.titleLabel.font = UIFont.systemFontOfSize(14.0)
         }
         
-        var currentView = self.titleLabel as UIView
-   
         if (self.contentButton == nil)
         {
             self.contentButton = UIButton(type: .Custom)
             self.contentView.addSubview(self.contentButton)
-            self.contentButton.frame = CGRectMake((CGRectGetWidth(self.bounds) - CGFloat(originXY) - 60.0), CGRectGetMinY(currentView.frame), 60.0, CGRectGetHeight(currentView.frame))
             
             self.contentButton.backgroundColor = UIColor.orangeColor()
             self.contentButton.layer.cornerRadius = 5.0
             self.contentButton.layer.masksToBounds = true
             self.contentButton.titleLabel!.font = UIFont.systemFontOfSize(12.0)
             self.contentButton.setTitleColor(UIColor.redColor(), forState: .Highlighted)
-            
-            self.contentButton.indexPath = self.cellIndex
         }
-        
-        let lineH = UIView(frame: CGRectMake(CGFloat(originXY), (CGRectGetMinY(currentView.frame) + CGRectGetHeight(currentView.frame) + CGFloat(originXY) - 0.5), (CGRectGetWidth(self.frame) - CGFloat(originXY) * 2), 0.5))
-        self.contentView.addSubview(lineH)
-        lineH.backgroundColor = UIColor.lightGrayColor()
-        
+     
         if (self.statusImage == nil)
         {
-            self.statusImage = UIImageView(frame: CGRectMake(CGRectGetMinX(currentView.frame), (CGRectGetMinY(currentView.frame) + CGRectGetHeight(currentView.frame) + CGFloat(originXY)), CGFloat(originXY), CGFloat(originXY)))
+            self.statusImage = UIImageView(frame: CGRectZero)
             self.contentView.addSubview(self.statusImage)
+            
             self.statusImage.contentMode = .ScaleAspectFit
         }
         
-        currentView = self.statusImage as UIView
-        
         if (self.contentLabel == nil)
         {
-            self.contentLabel = UILabel(frame: CGRectMake(CGFloat(originXY), (CGRectGetMinY(currentView.frame) + CGRectGetHeight(currentView.frame)), (CGRectGetWidth(self.bounds) - CGFloat(originXY) * 2), 40.0))
+            self.contentLabel = UILabel(frame: CGRectZero)
             self.contentView.addSubview(self.contentLabel)
+            
             self.contentLabel.textColor = UIColor.brownColor()
-            self.contentLabel.font = UIFont.systemFontOfSize(10.0)
+            self.contentLabel.font = UIFont.systemFontOfSize(contentFont)
             self.contentLabel.numberOfLines = 0
+            self.contentLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
         }
+        
+        
+        // 设置frame
+        // 标题
+        self.titleLabel.frame = CGRectMake(CGFloat(originXY), CGFloat(originXY), (CGRectGetWidth(self.frame) - CGFloat(originXY) * 3 - 60.0), CGFloat(labelHeight))
+        var currentView = self.titleLabel as UIView
+        // 按钮
+        self.contentButton.frame = CGRectMake((CGRectGetWidth(self.frame) - CGFloat(originXY) - 60.0), CGRectGetMinY(currentView.frame), 60.0, CGRectGetHeight(currentView.frame))
+        // 分割线
+        let lineH = UIView(frame: CGRectMake(CGFloat(originXY), (CGRectGetMinY(currentView.frame) + CGRectGetHeight(currentView.frame) + CGFloat(originXY) - 0.5), (CGRectGetWidth(self.frame) - CGFloat(originXY) * 2), 0.5))
+        self.contentView.addSubview(lineH)
+        lineH.backgroundColor = UIColor.lightGrayColor()
+        // 状态图标
+        self.statusImage.frame = CGRectMake(CGRectGetMinX(currentView.frame), (CGRectGetMinY(currentView.frame) + CGRectGetHeight(currentView.frame) + CGFloat(originXY)), CGFloat(originXY), CGFloat(originXY))
+        currentView = self.statusImage as UIView
+        // 详情
+        self.contentLabel.frame = CGRectMake(CGFloat(originXY), (CGRectGetMinY(currentView.frame) + CGRectGetHeight(currentView.frame)), (width - CGFloat(originXY) * 2), 0.0)
     }
     
     // MARK: 数据处理
@@ -139,6 +153,7 @@ class CustomCell: UITableViewCell {
     {
         self.titleLabel.text = self.cellModel.title
         self.contentLabel.text = self.cellModel.content
+        self.contentButton.indexPath = self.cellIndex
         
         let status = self.cellModel.contentStatus
         if status.boolValue
@@ -148,7 +163,11 @@ class CustomCell: UITableViewCell {
             
             self.statusImage.image = UIImage(named: "statusDown_image")
             
-            self.contentLabel.hidden = false
+            // 计算字生符串的宽度，高度
+            var rect = self.contentLabel.frame
+            let height = CustomCell.heightWithText(self.cellModel.content)
+            rect.size.height = height
+            self.contentLabel.frame = rect
         }
         else
         {
@@ -157,24 +176,32 @@ class CustomCell: UITableViewCell {
             
             self.statusImage.image = UIImage(named: "statusUp_image")
             
-            self.contentLabel.hidden = true
+            // 隐藏
+            var rect = self.contentLabel.frame
+            rect.size.height = 0.0
+            self.contentLabel.frame = rect
         }
     }
     
-    // MARK: - setter/getter
-    var cellHeight:CGFloat
+    // MARK: - 计算高度
+    class func cellHeight(model:CustomModel) -> CGFloat
     {
-        get
+        let status = model.contentStatus
+        if status.boolValue
         {
-            let status = self.cellModel.contentStatus
-            if status.boolValue
-            {
-                return CustomCellHeightDefault
-            }
-            else
-            {
-                return 160.0
-            }
+            let height = self.heightWithText(model.content)
+            return CustomCellHeightDefault + height
         }
+        else
+        {
+            return CustomCellHeightDefault
+        }
+    }
+    
+    private class func heightWithText(text:String) -> CGFloat
+    {
+        let size:CGRect = text.boundingRectWithSize(CGSizeMake(width, 999.9), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName:UIFont.systemFontOfSize(contentFont)], context: nil)
+        
+        return size.height
     }
 }

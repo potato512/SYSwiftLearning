@@ -10,7 +10,7 @@ swift纯代码开发学习（foundation、UIKit等）
 
   *（3）UILabel——完成20160927
 
-  *（4）UITableView、UITableViewCell、UITableViewHeaderView、UITableViewFooterView
+  *（4）UITableView、UITableViewCell、UITableViewHeaderView、UITableViewFooterView——完成20161024
 
   *（5）UIView——完成20160928
 
@@ -54,13 +54,13 @@ swift纯代码开发学习（foundation、UIKit等）
 
  * 二、视图控制器
 
-  *（1）UIViewController
+  *（1）UIViewController——完成20161018
 
-  *（2）UINavigationController
+  *（2）UINavigationController——完成20161018
 
   *（3）UITabbarController——完成20161017
 
-  *（4）UIImagePickerController
+  *（4）UIImagePickerController——（图片完成，图库完成，拍照，录像）
 
   *……
 
@@ -83,6 +83,10 @@ swift纯代码开发学习（foundation、UIKit等）
   *（8）NSData
 
   *（9）NSDate
+
+  *（10）沙盒路径
+
+  *（11）线程
 
   *……
 
@@ -121,6 +125,18 @@ swift纯代码开发学习（foundation、UIKit等）
   *（3）网络请求
 
   *（4）图片处理
+
+  *……
+
+ * 七、其他
+
+  *（1）录音与播放录音
+
+  *（2）录像与播放视频
+
+  *（3）地图
+
+  *（4）重力感应等
 
   *……
 

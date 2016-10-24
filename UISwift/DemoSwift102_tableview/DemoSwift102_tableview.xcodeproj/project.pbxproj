@@ -27,6 +27,10 @@
 		A7676D091DB8B4DB008D6087 /* GroupTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7676D081DB8B4DB008D6087 /* GroupTableVC.swift */; };
 		A7676D0B1DB8B4EF008D6087 /* CustomTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7676D0A1DB8B4EF008D6087 /* CustomTableVC.swift */; };
 		A76F24D11DB779EF00B076FC /* NormalTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76F24D01DB779EF00B076FC /* NormalTableVC.swift */; };
+		A7A8E29A1DBDB9B200506BE0 /* CustomTableVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A8E2991DBDB9B200506BE0 /* CustomTableVC2.swift */; };
+		A7A8E29C1DBDB9C600506BE0 /* CustomCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A8E29B1DBDB9C600506BE0 /* CustomCell2.swift */; };
+		A7A8E29E1DBDDEB300506BE0 /* CustomHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A8E29D1DBDDEB300506BE0 /* CustomHeader.swift */; };
+		A7A8E2A01DBDDEBE00506BE0 /* CustomFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A8E29F1DBDDEBE00506BE0 /* CustomFooter.swift */; };
 		A7C0B2721DB9EA69004ED339 /* MessageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C0B2711DB9EA69004ED339 /* MessageItem.swift */; };
 		A7C0B2801DB9F0F8004ED339 /* luguhu.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A7C0B2791DB9F0F8004ED339 /* luguhu.jpeg */; };
 		A7C0B2811DB9F0F8004ED339 /* mebubble.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C0B27A1DB9F0F8004ED339 /* mebubble.png */; };
@@ -91,6 +95,10 @@
 		A7676D081DB8B4DB008D6087 /* GroupTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTableVC.swift; sourceTree = "<group>"; };
 		A7676D0A1DB8B4EF008D6087 /* CustomTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableVC.swift; sourceTree = "<group>"; };
 		A76F24D01DB779EF00B076FC /* NormalTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalTableVC.swift; sourceTree = "<group>"; };
+		A7A8E2991DBDB9B200506BE0 /* CustomTableVC2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableVC2.swift; sourceTree = "<group>"; };
+		A7A8E29B1DBDB9C600506BE0 /* CustomCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell2.swift; sourceTree = "<group>"; };
+		A7A8E29D1DBDDEB300506BE0 /* CustomHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeader.swift; sourceTree = "<group>"; };
+		A7A8E29F1DBDDEBE00506BE0 /* CustomFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFooter.swift; sourceTree = "<group>"; };
 		A7C0B2711DB9EA69004ED339 /* MessageItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageItem.swift; sourceTree = "<group>"; };
 		A7C0B2791DB9F0F8004ED339 /* luguhu.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = luguhu.jpeg; sourceTree = "<group>"; };
 		A7C0B27A1DB9F0F8004ED339 /* mebubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mebubble.png; sourceTree = "<group>"; };
@@ -167,7 +175,11 @@
 				A7676D081DB8B4DB008D6087 /* GroupTableVC.swift */,
 				A7676D0A1DB8B4EF008D6087 /* CustomTableVC.swift */,
 				A72178D01D9A6011004F213E /* CustomCell.swift */,
+				A7A8E29D1DBDDEB300506BE0 /* CustomHeader.swift */,
+				A7A8E29F1DBDDEBE00506BE0 /* CustomFooter.swift */,
 				A7C0B28B1DB9FD03004ED339 /* CustomModel.swift */,
+				A7A8E2991DBDB9B200506BE0 /* CustomTableVC2.swift */,
+				A7A8E29B1DBDB9C600506BE0 /* CustomCell2.swift */,
 				A7C0B28D1DBA0C36004ED339 /* UIButton+Extension.swift */,
 				A7C0B2871DB9F91B004ED339 /* MessageTableVC.swift */,
 				A7C0B2891DB9F935004ED339 /* MessageCell.swift */,
@@ -386,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7C0B28C1DB9FD03004ED339 /* CustomModel.swift in Sources */,
+				A7A8E29E1DBDDEB300506BE0 /* CustomHeader.swift in Sources */,
 				A7C0B28A1DB9F935004ED339 /* MessageCell.swift in Sources */,
 				A7C0B28E1DBA0C36004ED339 /* UIButton+Extension.swift in Sources */,
 				A76F24D11DB779EF00B076FC /* NormalTableVC.swift in Sources */,
@@ -394,10 +407,13 @@
 				A7676D0B1DB8B4EF008D6087 /* CustomTableVC.swift in Sources */,
 				A7C0B2721DB9EA69004ED339 /* MessageItem.swift in Sources */,
 				A7676CF61DB89364008D6087 /* EditTableVC.swift in Sources */,
+				A7A8E29C1DBDB9C600506BE0 /* CustomCell2.swift in Sources */,
 				A7676D071DB8B4C9008D6087 /* SortTableVC.swift in Sources */,
+				A7A8E2A01DBDDEBE00506BE0 /* CustomFooter.swift in Sources */,
 				A721786B1D9A0DC5004F213E /* ViewController.swift in Sources */,
 				A7676D091DB8B4DB008D6087 /* GroupTableVC.swift in Sources */,
 				A72178691D9A0DC5004F213E /* AppDelegate.swift in Sources */,
+				A7A8E29A1DBDB9B200506BE0 /* CustomTableVC2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

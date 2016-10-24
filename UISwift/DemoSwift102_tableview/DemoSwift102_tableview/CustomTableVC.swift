@@ -49,15 +49,15 @@ class CustomTableVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     {
         self.mainArray = NSMutableArray()
         
-        for number in 1...10
+        for number in 1...3
         {
             let rowArray:NSMutableArray = NSMutableArray()
-            for numberTmp in 1...5
+            for numberTmp in 1...2
             {
                 let model = CustomModel()
                 model.title = "方法/步骤"
                 model.content = "比如，我有一个ELCImagePickerController类，需要增加一个tag属性，代码如下:软件基本信息。使用TableViewController自定义列表。版权声明：本文为博主原创文章，未经博主允许不得转载。swift自定义UITableViewCell，并配置到UITableView的注意事项"
-                model.contentStatus = false
+                model.contentStatus = ((numberTmp % 2 == 0) ? true : false)
                 
                 rowArray.addObject(model)
             }
@@ -88,6 +88,10 @@ class CustomTableVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         self.mainTableView.autoresizingMask = UIViewAutoresizing.FlexibleHeight
         self.mainTableView.tableFooterView = UIView()
         
+        // 创建一个重用的页眉
+        self.mainTableView!.registerClass(CustomHeader.self, forHeaderFooterViewReuseIdentifier: CustomHeaderIdentifier)
+        // 创建一个重用的页脚
+        self.mainTableView!.registerClass(CustomFooter.self, forHeaderFooterViewReuseIdentifier: CustomFooterIdentifier)
         // 创建一个重用的单元格
         self.mainTableView!.registerClass(CustomCell.self, forCellReuseIdentifier: CustomCellIdentifier)
     }
@@ -128,7 +132,10 @@ class CustomTableVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         {
             data.contentStatus = true
         }
+        // 刷新数据，只刷新修改数据的信息
         self.mainTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
+        // 刷新数据，刷新全部信息
+//        self.mainTableView.reloadData()
     }
     
     // MARK: - UITableViewDataSource, UITableViewDelegate
@@ -140,7 +147,7 @@ class CustomTableVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     
     // MARK: 页眉视图
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40.0
+        return CustomHeaderHeight
     }
     
 //    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -154,6 +161,8 @@ class CustomTableVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     // 自定义页眉（注意：自定义时，高度与代理方法中的高度一致，同时代理方法中的标题失效）
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
+        // 自定义视图，未复用
+        /*
         let view = UIButton(frame: CGRectMake(0.0, 0.0, CGRectGetWidth(self.mainTableView.frame), 40.0))
         view.backgroundColor = UIColor.greenColor()
         view.contentHorizontalAlignment = .Center
@@ -167,13 +176,27 @@ class CustomTableVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         let dict:NSDictionary! = self.mainArray[section] as! NSDictionary
         let title:String! = dict.objectForKey("rowHeader") as! String
         view.setTitle(title, forState: .Normal)
-        
+
         return view
+        */
+
+        
+        // 自定义视图，重用方法
+        let headerView = CustomHeader(reuseIdentifier: CustomHeaderIdentifier)
+        // 响应事件，用于修改cell显示状态，即打开，或收起来
+        headerView.headerButton.tag = section
+        headerView.headerButton.addTarget(self, action: Selector("statusClick:"), forControlEvents: .TouchUpInside)
+        // 标题
+        let dict:NSDictionary! = self.mainArray[section] as! NSDictionary
+        let title:String! = dict.objectForKey("rowHeader") as! String
+        headerView.headerButton.setTitle(title, forState: .Normal)
+
+        return headerView
     }
     
     // MARK: 页脚视图
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 20.0
+        return CustomFooterHeight
     }
     
 //    func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
@@ -187,6 +210,8 @@ class CustomTableVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     // 自定义页脚（注意：自定义时，高度与代理方法中的高度一致，同时代理方法中的标题失效）
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         
+        // 自定义页脚视图，未重用
+        /*
         let view = UILabel(frame: CGRectMake(0.0, 0.0, CGRectGetWidth(self.mainTableView.frame), 40.0))
         view.backgroundColor = UIColor.yellowColor()
         view.textAlignment = .Center
@@ -196,6 +221,15 @@ class CustomTableVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         view.text = title
         
         return view
+        */
+        
+        // 自定义可重用页脚视图
+        let footerView = CustomFooter(reuseIdentifier: CustomFooterIdentifier)
+        let dict:NSDictionary! = self.mainArray[section] as! NSDictionary
+        let title:String! = dict.objectForKey("rowFooter") as! String
+        footerView.label.text = title
+        
+        return footerView
     }
     
     // MARK: cell单元格
@@ -214,7 +248,11 @@ class CustomTableVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
       
-        let height = CustomCellHeightDefault
+        let dict:NSDictionary! = self.mainArray[indexPath.section] as! NSDictionary
+        let array:NSArray! = dict.objectForKey("rowCell") as! NSArray
+        let data:CustomModel! = array[indexPath.row] as! CustomModel
+        let height = CustomCell.cellHeight(data)
+        
         return height
     }
     
@@ -231,11 +269,5 @@ class CustomTableVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
-//        let dict:NSDictionary! = self.mainArray[indexPath.section] as! NSDictionary
-//        let array:NSArray! = dict.objectForKey("rowCell") as! NSArray
-//        let data:CustomModel! = array[indexPath.row] as! CustomModel
-//        let height = max((data.insets.top + data.view.frame.size.height + data.insets.bottom), 52)
-//        print("当前点击的cell高度是：\(height)")
     }
 }

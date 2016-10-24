@@ -67,7 +67,7 @@ class ViewController: UIViewController {
         
         
         // 富文本属性
-        let label02:UILabel = UILabel(frame: CGRectMake(10.0, (CGRectGetHeight(label.frame) + CGRectGetMaxY(label.frame) + 10.0), (CGRectGetWidth(self.view.frame) - 10.0 * 2), 40.0))
+        let label02:UILabel = UILabel(frame: CGRectMake(10.0, (CGRectGetHeight(label.frame) + CGRectGetMinY(label.frame) + 10.0), (CGRectGetWidth(self.view.frame) - 10.0 * 2), 40.0))
         self.view.addSubview(label02)
         label02.backgroundColor = UIColor.yellowColor()
         label02.font = UIFont(name: "Thonburi", size: 12.0)
@@ -87,13 +87,30 @@ class ViewController: UIViewController {
         // 富文本内容显示
         label02.attributedText = attributeString
         
+        
+        
         // 计算字生符串的宽度，高度
         let string:String = "swift中计算字符串的宽度和高度。swift中计算字符串的宽度和高度。swift中计算字符串的宽度和高度。"
         let font:UIFont! = UIFont(name: "EuphemiaUCAS", size: 12.0)
         let attributes = [NSFontAttributeName:font]
         let option = NSStringDrawingOptions.UsesLineFragmentOrigin
-        let rect:CGRect = string.boundingRectWithSize(CGSizeMake(320.0, 999.9), options: option, attributes: attributes, context: nil)
-        print("rect:\(rect)")
+        let autoSize = CGSizeMake(CGRectGetWidth(self.view.frame), 999.9)
+//        let autoSize = CGSizeMake(999.9, 999.9)
+        let size:CGRect = string.boundingRectWithSize(autoSize, options: option, attributes: attributes, context: nil)
+        print("size:\(size)")
+        
+        let label03 = UILabel(frame: CGRectMake(10.0, (CGRectGetHeight(label02.frame) + CGRectGetMinY(label02.frame) + 10.0), (CGRectGetWidth(self.view.frame) - 10.0 * 2), 20.0))
+        self.view.addSubview(label03)
+        label03.backgroundColor = UIColor.orangeColor()
+        label03.font = UIFont.systemFontOfSize(12.0)
+        label03.text = string
+        label03.numberOfLines = 0
+        label03.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        // 自适应高度
+        var autoRect = label03.frame
+        autoRect.size.height = size.height
+        label03.frame = autoRect
+        
         
         /*
         注意：多行显示时，参数numberOfLines，font，frame中的height，三者是有关联的。如果height小于fone，或小于numberOfLines的行数时，则会显示不全。

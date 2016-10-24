@@ -53,6 +53,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.mainArray.addObject("sort Table")
         self.mainArray.addObject("group Table")
         self.mainArray.addObject("custom Table_header/footer/cell")
+        self.mainArray.addObject("custom Table_cell")
         self.mainArray.addObject("custom Table_message")
     }
     
@@ -137,6 +138,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.navigationController!.pushViewController(nextVC, animated: true)
             
             case 5:
+                let nextVC = CustomTableVC2()
+                self.navigationController!.pushViewController(nextVC, animated: true)
+            
+            case 6:
                 let nextVC = MessageTableVC()
                 self.navigationController!.pushViewController(nextVC, animated: true)
             
@@ -155,7 +160,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 3、带搜索列表视图（搜索、索引）
 4、群组列表视图（类似于QQ联系人分组，可打开，折叠）
 5、自定义cell列表视图（动态高度：header/footer/cell）
-6、自定义cell列表视图（动态高度：message）
+6、自定义cell列表视图（动态高度：cell）
+7、自定义cell列表视图（动态高度：message）
 
 */
 
