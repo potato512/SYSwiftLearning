@@ -60,7 +60,7 @@ swift纯代码开发学习（foundation、UIKit等）
 
   *（3）UITabbarController——完成20161017
 
-  *（4）UIImagePickerController——（图片完成，图库完成，拍照，录像）
+  *（4）UIImagePickerController——（图片完成，图库完成，拍照，录像）——完成20161025
 
   *……
 
