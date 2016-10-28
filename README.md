@@ -42,7 +42,7 @@ swift纯代码开发学习（foundation、UIKit等）
 
   *（19）UIWebView、WKWebView
 
-  *（20）UIWindow
+  *（20）UIWindow——完成20161028
 
   *（21）UISegmentController——完成20160930
 
