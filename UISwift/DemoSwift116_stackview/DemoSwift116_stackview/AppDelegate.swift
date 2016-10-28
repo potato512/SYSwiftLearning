@@ -1,10 +1,10 @@
 //
 //  AppDelegate.swift
-//  DemoSwift122_window
+//  DemoSwift116_stackview
 //
-//  Created by zhangshaoyu on 16/10/19.
+//  Created by zhangshaoyu on 16/9/30.
 //  Copyright © 2016年 zhangshaoyu. All rights reserved.
-//  github学习地址：https://github.com/potato512/SYSwiftLearning
+//
 
 import UIKit
 
@@ -17,12 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        
         let rootVC = ViewController()
         let rootNav = UINavigationController(rootViewController: rootVC)
-        self.window!.rootViewController = rootNav
-        self.window!.makeKeyAndVisible()
-        
+        self.window?.rootViewController = rootNav
+        self.window?.makeKeyAndVisible()
         
         return true
     }

@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  DemoSwift122_window
+//  DemoSwift120_scrollView
 //
 //  Created by zhangshaoyu on 16/10/19.
 //  Copyright © 2016年 zhangshaoyu. All rights reserved.
@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
         
         let rootVC = ViewController()
         let rootNav = UINavigationController(rootViewController: rootVC)
