@@ -79,6 +79,28 @@ class NormalVC: UIViewController, UIScrollViewDelegate {
         mainScrollView.indicatorStyle = UIScrollViewIndicatorStyle.White // 滑动条的样式
         // 设置内容大小
         mainScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.bounds), originY)
+        // 设置代理
+        mainScrollView.delegate = self
+        
+        
+        
+        // 头尾视图
+        self.headerLabel = UILabel(frame: CGRectMake(0.0, 0.0, CGRectGetWidth(self.view.frame), 0.0))
+        self.view.addSubview(self.headerLabel)
+        self.headerLabel.backgroundColor = UIColor.yellowColor()
+        self.headerLabel.textColor = UIColor.redColor()
+        self.headerLabel.textAlignment = .Center
+        self.headerLabel.text = "headerLabel"
+        self.headerLabel.hidden = false
+        
+        self.footerLabel = UILabel(frame: CGRectMake(0.0, (CGRectGetHeight(self.view.frame) - 40.0), CGRectGetWidth(self.view.frame), 0.0))
+        self.view.addSubview(self.footerLabel)
+        self.footerLabel.autoresizingMask = .FlexibleTopMargin
+        self.footerLabel.backgroundColor = UIColor.yellowColor()
+        self.footerLabel.textColor = UIColor.redColor()
+        self.footerLabel.textAlignment = .Center
+        self.footerLabel.text = "footerLabel"
+        self.footerLabel.hidden = false
     }
     
     // MARK: - UIScrollViewDelegate
@@ -86,11 +108,57 @@ class NormalVC: UIViewController, UIScrollViewDelegate {
     func scrollViewWillBeginDragging(scrollView: UIScrollView)
     {
         print("1 scrollViewWillBeginDragging")
+        
+        scrollView.contentInset = UIEdgeInsetsZero
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView)
     {
         print("2 scrollViewDidScroll")
+        
+        // 上下拉时滚动时的位移量（向上滚动时，位移是正数；向下拉动时，位移是负数）
+        let offsetY = scrollView.contentOffset.y
+        print("offsetY = \(offsetY)")
+        
+        // 最大位移量（注意scrollview的contentsize的高与当前视图控制器的屏幕高度的关系）
+        let offsetYMax = scrollView.contentSize.height
+        print("offsetYMax = \(offsetYMax)")
+        let offsetYTmp = offsetYMax - CGRectGetHeight(self.view.bounds)
+        print("offsetYTmp = \(offsetYTmp)")
+        
+        if 0 >= offsetY
+        {
+            // 向下拉
+            
+            // 重置headerLabel的frame
+            var rectHeader = self.headerLabel.frame
+            rectHeader.size.height = offsetY * -1.0
+            self.headerLabel.frame = rectHeader
+            
+            //
+            if -100.0 >= offsetY
+            {
+                scrollView.contentInset = UIEdgeInsetsMake(80.0, 0.0, 0.0, 0.0)
+            }
+        }
+        else
+        {
+            // 向上拉
+            let offsetYUp = offsetY - offsetYTmp
+            
+            // 重置footerLabel的frame
+            var rectFooter = self.footerLabel.frame
+            rectFooter.origin.y = CGRectGetHeight(self.view.bounds) - offsetYUp
+            rectFooter.size.height = offsetYUp
+            self.footerLabel.frame = rectFooter
+            
+            
+            //
+            if 100.0 <= offsetYUp
+            {
+                scrollView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 80.0, 0.0)
+            }
+        }
     }
     
     func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>)
@@ -112,15 +180,10 @@ class NormalVC: UIViewController, UIScrollViewDelegate {
     {
         print("6 scrollViewDidEndDecelerating")
         
+
     }
 
 
-    // MARK: - getter
-//    lazy var headerLabel:UILabel
-//    {
-//        let label = UILabel(frame: CGRectZero)
-//        
-//        return label
-//    }
+
 
 }

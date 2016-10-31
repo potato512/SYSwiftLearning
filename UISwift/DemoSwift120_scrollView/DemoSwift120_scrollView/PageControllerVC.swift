@@ -94,7 +94,7 @@ class PageControllerVC: UIViewController, UIScrollViewDelegate {
         self.mainScrollView.scrollEnabled = true // 可以上下滚动
         self.mainScrollView.scrollsToTop = true // 点击状态栏时，可以滚动回顶端
         self.mainScrollView.bounces = true // 在最顶端或最底端时，仍然可以滚动，且释放后有动画返回效果
-        mainScrollView.pagingEnabled = false // 分页显示效果
+        mainScrollView.pagingEnabled = true // 分页显示效果
         mainScrollView.showsHorizontalScrollIndicator = true // 显示水平滚动条
         mainScrollView.showsVerticalScrollIndicator = true // 显示垂直滚动条
         mainScrollView.indicatorStyle = UIScrollViewIndicatorStyle.White // 滑动条的样式
