@@ -20,8 +20,10 @@ class ViewController: UIViewController {
         normalItem.tag = 1
         let pageItem = UIBarButtonItem(title: "page", style: .Done, target: self, action: Selector("buttonClick:"))
         pageItem.tag = 2
+        let imageItem = UIBarButtonItem(title: "image", style: .Done, target: self, action: Selector("buttonClick:"))
+        imageItem.tag = 3
         
-        self.navigationItem.rightBarButtonItems = [normalItem, pageItem]
+        self.navigationItem.rightBarButtonItems = [normalItem, pageItem, imageItem]
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,6 +57,11 @@ class ViewController: UIViewController {
         else if 2 == index
         {
             let nextVC = PageControllerVC()
+            self.navigationController!.pushViewController(nextVC, animated: true)
+        }
+        else if 3 == index
+        {
+            let nextVC = ImageVC()
             self.navigationController!.pushViewController(nextVC, animated: true)
         }
     }

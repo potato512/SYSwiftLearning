@@ -195,40 +195,5 @@ class PageControllerVC: UIViewController, UIScrollViewDelegate {
     
     
     
-//    func scrollViewDidZoom(scrollView: UIScrollView)
-//    {
-//        print("2 scrollViewDidZoom")
-//    }
     
-//    func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView)
-//    {
-//        print("8 scrollViewDidEndScrollingAnimation")
-//    }
-    
-//    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView?
-//    {
-//        print("2 scrollViewDidZoom")
-//    }
-    
-//    func scrollViewWillBeginZooming(scrollView: UIScrollView, withView view: UIView?)
-//    {
-//        print("9 scrollViewWillBeginZooming")
-//    }
-    
-//    func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat)
-//    {
-//        print("10 scrollViewDidEndZooming")
-//    }
-    
-//    func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool
-//    {
-//        print("11 scrollViewShouldScrollToTop")
-//        
-//        return true
-//    }
-    
-//    func scrollViewDidScrollToTop(scrollView: UIScrollView)
-//    {
-//        print("12 scrollViewDidScrollToTop")
-//    }
 }
