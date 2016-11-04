@@ -49,6 +49,7 @@
 		A7C0B2991DBA0CC2004ED339 /* statusUp_image.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C0B2931DBA0CC2004ED339 /* statusUp_image.png */; };
 		A7C0B29A1DBA0CC2004ED339 /* statusUp_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C0B2941DBA0CC2004ED339 /* statusUp_image@2x.png */; };
 		A7C0B29B1DBA0CC2004ED339 /* statusUp_image@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C0B2951DBA0CC2004ED339 /* statusUp_image@3x.png */; };
+		A7EE0FEA1DCC75B9000262F1 /* MoreButtonEditTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EE0FE91DCC75B9000262F1 /* MoreButtonEditTableVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		A7C0B2931DBA0CC2004ED339 /* statusUp_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statusUp_image.png; sourceTree = "<group>"; };
 		A7C0B2941DBA0CC2004ED339 /* statusUp_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "statusUp_image@2x.png"; sourceTree = "<group>"; };
 		A7C0B2951DBA0CC2004ED339 /* statusUp_image@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "statusUp_image@3x.png"; sourceTree = "<group>"; };
+		A7EE0FE91DCC75B9000262F1 /* MoreButtonEditTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreButtonEditTableVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 				A7C0B2871DB9F91B004ED339 /* MessageTableVC.swift */,
 				A7C0B2891DB9F935004ED339 /* MessageCell.swift */,
 				A7C0B2711DB9EA69004ED339 /* MessageItem.swift */,
+				A7EE0FE91DCC75B9000262F1 /* MoreButtonEditTableVC.swift */,
 				A7C0B28F1DBA0CC2004ED339 /* statusImage */,
 				A7676D031DB8A134008D6087 /* Image */,
 				A721786C1D9A0DC5004F213E /* Main.storyboard */,
@@ -397,6 +400,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7EE0FEA1DCC75B9000262F1 /* MoreButtonEditTableVC.swift in Sources */,
 				A7C0B28C1DB9FD03004ED339 /* CustomModel.swift in Sources */,
 				A7A8E29E1DBDDEB300506BE0 /* CustomHeader.swift in Sources */,
 				A7C0B28A1DB9F935004ED339 /* MessageCell.swift in Sources */,

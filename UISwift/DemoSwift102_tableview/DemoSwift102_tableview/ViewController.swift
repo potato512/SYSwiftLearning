@@ -55,6 +55,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.mainArray.addObject("custom Table_header/footer/cell")
         self.mainArray.addObject("custom Table_cell")
         self.mainArray.addObject("custom Table_message")
+        self.mainArray.addObject("more button Table")
     }
     
     // MARK: - 初始化tableview
@@ -143,6 +144,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             case 6:
                 let nextVC = MessageTableVC()
+                self.navigationController!.pushViewController(nextVC, animated: true)
+            
+            case 7:
+                let nextVC = MoreButtonEditTableVC()
                 self.navigationController!.pushViewController(nextVC, animated: true)
             
             default:
