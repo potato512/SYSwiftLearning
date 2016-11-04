@@ -144,6 +144,9 @@ class ImageVC: UIViewController, UIScrollViewDelegate {
     {
         print("3 scrollViewDidZoom")
         
+        // 居中显示
+        let imageview = scrollView.subviews.first as! UIImageView
+        self.centerShow(scrollView, imageview: imageview)
     }
     
     func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat)
@@ -165,7 +168,6 @@ class ImageVC: UIViewController, UIScrollViewDelegate {
     }
 
     
-    
     // MARK: - 双击缩放
     var isScaleBig:Bool = false
     func doubleClick(gestureRecognizer:UITapGestureRecognizer)
@@ -185,30 +187,14 @@ class ImageVC: UIViewController, UIScrollViewDelegate {
             scrollview.setZoomScale((scale * 0.3), animated: true)
             isScaleBig = true
         }
-        
-
+    }
+    
+    func centerShow(scrollview:UIScrollView, imageview:UIImageView)
+    {
         // 居中显示
-        let boundsSize = scrollview.bounds.size
-        var contentsFrame = imageview.frame
-        
-        if contentsFrame.size.width < boundsSize.width
-        {
-            contentsFrame.origin.x = (boundsSize.width - contentsFrame.size.width) / 2.0
-        }
-        else
-        {
-            contentsFrame.origin.x = 0.0
-        }
-        
-        if contentsFrame.size.height < boundsSize.height
-        {
-            contentsFrame.origin.y = (boundsSize.height - contentsFrame.size.height) / 2.0
-        }
-        else
-        {
-            contentsFrame.origin.y = 0.0
-        }
-        
-        imageview.frame = contentsFrame
+        let offsetX = (scrollview.bounds.size.width > scrollview.contentSize.width) ? (scrollview.bounds.size.width - scrollview.contentSize.width) * 0.5 : 0.0;
+        let offsetY = (scrollview.bounds.size.height > scrollview.contentSize.height) ?
+        (scrollview.bounds.size.height - scrollview.contentSize.height) * 0.5 : 0.0;
+        imageview.center = CGPointMake(scrollview.contentSize.width * 0.5 + offsetX,scrollview.contentSize.height * 0.5 + offsetY);
     }
 }

@@ -18,7 +18,7 @@ swift纯代码开发学习（foundation、UIKit等）
 
   *（7）UIImageView——完成20160928
 
-  *（8）UIScrollView
+  *（8）UIScrollView——完成20161104
 
   *（9）UIActivityIndicatorView——完成20160930
 
@@ -30,7 +30,7 @@ swift纯代码开发学习（foundation、UIKit等）
 
   *（13）UIPickerView——完成20160929
 
-  *（14）UIPageControl
+  *（14）UIPageControl——完成20161104
 
   *（15）UISearchBar——完成20160930
 
