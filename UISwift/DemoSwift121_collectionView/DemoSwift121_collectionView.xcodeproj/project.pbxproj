@@ -14,6 +14,10 @@
 		A76F24731DB778B000B076FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A76F24711DB778B000B076FC /* LaunchScreen.storyboard */; };
 		A76F247E1DB778B000B076FC /* DemoSwift121_collectionViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76F247D1DB778B000B076FC /* DemoSwift121_collectionViewTests.swift */; };
 		A76F24891DB778B000B076FC /* DemoSwift121_collectionViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76F24881DB778B000B076FC /* DemoSwift121_collectionViewUITests.swift */; };
+		A7BCF3DA1DD1702C0017648F /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BCF3D91DD1702C0017648F /* CollectionViewCell.swift */; };
+		A7BCF3DC1DD170570017648F /* CollectionReusableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BCF3DB1DD170570017648F /* CollectionReusableViewHeader.swift */; };
+		A7BCF3DE1DD170660017648F /* CollectionReusableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BCF3DD1DD170660017648F /* CollectionReusableViewFooter.swift */; };
+		A7BCF3E01DD1714B0017648F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BCF3DF1DD1714B0017648F /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		A76F24841DB778B000B076FC /* DemoSwift121_collectionViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoSwift121_collectionViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A76F24881DB778B000B076FC /* DemoSwift121_collectionViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSwift121_collectionViewUITests.swift; sourceTree = "<group>"; };
 		A76F248A1DB778B000B076FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7BCF3D91DD1702C0017648F /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		A7BCF3DB1DD170570017648F /* CollectionReusableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionReusableViewHeader.swift; sourceTree = "<group>"; };
+		A7BCF3DD1DD170660017648F /* CollectionReusableViewFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionReusableViewFooter.swift; sourceTree = "<group>"; };
+		A7BCF3DF1DD1714B0017648F /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,10 @@
 			children = (
 				A76F24681DB778B000B076FC /* AppDelegate.swift */,
 				A76F246A1DB778B000B076FC /* ViewController.swift */,
+				A7BCF3D91DD1702C0017648F /* CollectionViewCell.swift */,
+				A7BCF3DB1DD170570017648F /* CollectionReusableViewHeader.swift */,
+				A7BCF3DD1DD170660017648F /* CollectionReusableViewFooter.swift */,
+				A7BCF3DF1DD1714B0017648F /* Model.swift */,
 				A76F246C1DB778B000B076FC /* Main.storyboard */,
 				A76F246F1DB778B000B076FC /* Assets.xcassets */,
 				A76F24711DB778B000B076FC /* LaunchScreen.storyboard */,
@@ -256,8 +268,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7BCF3DC1DD170570017648F /* CollectionReusableViewHeader.swift in Sources */,
 				A76F246B1DB778B000B076FC /* ViewController.swift in Sources */,
+				A7BCF3DE1DD170660017648F /* CollectionReusableViewFooter.swift in Sources */,
+				A7BCF3E01DD1714B0017648F /* Model.swift in Sources */,
 				A76F24691DB778B000B076FC /* AppDelegate.swift in Sources */,
+				A7BCF3DA1DD1702C0017648F /* CollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,7 +364,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -387,7 +403,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -400,6 +416,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DemoSwift121_collectionView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zsy.DemoSwift121-collectionView";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -411,6 +428,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DemoSwift121_collectionView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zsy.DemoSwift121-collectionView";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -484,6 +502,7 @@
 				A76F248F1DB778B000B076FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A76F24901DB778B000B076FC /* Build configuration list for PBXNativeTarget "DemoSwift121_collectionViewTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +511,7 @@
 				A76F24921DB778B000B076FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A76F24931DB778B000B076FC /* Build configuration list for PBXNativeTarget "DemoSwift121_collectionViewUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +520,7 @@
 				A76F24951DB778B000B076FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

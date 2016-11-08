@@ -46,7 +46,7 @@ swift纯代码开发学习（foundation、UIKit等）
 
   *（21）UISegmentController——完成20160930
 
-  *（22）UICollectionView
+  *（22）UICollectionView——完成20161108
 
   *（23）UIDatePicker——完成20160929
 
