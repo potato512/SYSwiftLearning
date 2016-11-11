@@ -71,7 +71,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         self.mainCollectionView.backgroundColor = UIColor.blueColor()
         self.mainCollectionView.dataSource = self
         self.mainCollectionView.delegate = self
-
+        
         // 注册一个cell
         self.mainCollectionView!.registerClass(CollectionViewCell.self, forCellWithReuseIdentifier:cellIdentifier)
         // 注册一个headView
