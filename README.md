@@ -92,7 +92,7 @@ swift纯代码开发学习（foundation、UIKit等）
 
  * 四、缓存
 
-  *（1）userdefault
+  *（1）userdefault——完成20161121
 
   *（2）plist
 
