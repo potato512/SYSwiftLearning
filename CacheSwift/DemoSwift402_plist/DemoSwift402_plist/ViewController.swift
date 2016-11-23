@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +41,13 @@ class ViewController: UIViewController {
     
     func setUI()
     {
-
+        let textfield = UITextField(frame: CGRectMake(10.0,10.0,(self.view.frame.size.width - 10.0 * 2),40.0))
+        self.view.addSubview(textfield)
+        textfield.textColor = UIColor.blackColor()
+        textfield.clearButtonMode = .WhileEditing
+        textfield.delegate = self
+        textfield.layer.borderColor = UIColor.redColor().CGColor
+        textfield.layer.borderWidth = 1.0
     }
     
     // MARK: - 交互
@@ -49,13 +55,27 @@ class ViewController: UIViewController {
     // 保存，或修改
     func saveInfo(name:String)
     {
-        if (0 <= name.characters.count)
+        if (0 < name.characters.count)
         {
-            let userDefault = NSUserDefaults.standardUserDefaults()
-            userDefault.setObject(name, forKey: "name")
-            userDefault.synchronize()
-            
-            let alert = UIAlertView(title: "温馨提示", message: "保存成功", delegate: nil, cancelButtonTitle: "知道了")
+            // 路径
+            let documents:[String] = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+            let documentPath = documents.first!
+            let url:NSURL = NSURL(string: documentPath)!
+            let fileUrl:NSURL = url.URLByAppendingPathComponent("document.plist")
+            // 文件名称
+            let filePath:String = fileUrl.absoluteString
+            if !NSFileManager.defaultManager().fileExistsAtPath(filePath)
+            {
+                NSFileManager.defaultManager().createFileAtPath(filePath, contents: nil, attributes: nil)
+            }
+     
+            print("filePath = \(filePath)")
+            // 保存数据
+            let dict = NSMutableDictionary(contentsOfURL: fileUrl);
+            dict!.setObject(name, forKey: "name")
+            let isSuccess = dict!.writeToFile(filePath, atomically: true)
+
+            let alert = UIAlertView(title: "温馨提示", message: (isSuccess ? "保存成功" : "保存失败"), delegate: nil, cancelButtonTitle: "知道了")
             alert.show()
         }
     }
@@ -85,6 +105,21 @@ class ViewController: UIViewController {
         
         let alert = UIAlertView(title: "温馨提示", message: "删除成功", delegate: nil, cancelButtonTitle: "知道了")
         alert.show()
+    }
+    
+    // MARK: - UITextFieldDelegate
+    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+        
+        let text:String = textField.text!
+        self.saveInfo(text)
+        
+        return true
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return true
     }
 
 }
