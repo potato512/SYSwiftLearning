@@ -68,9 +68,9 @@ swift纯代码开发学习（foundation、UIKit等）
 
   *（1）手势
 
-  *（2）通知
+  *（2）通知NSNotificationCenter
 
-  *（3）计时器
+  *（3）计时器NSTimer——完成20170420
 
   *（4）NSRange
 
@@ -128,7 +128,7 @@ swift纯代码开发学习（foundation、UIKit等）
 
   *……
 
- * 七、其他
+ * 七、多媒体等设备
 
   *（1）录音与播放录音
 

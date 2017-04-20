@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>DemoSwift303_NSTimer.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>DF5A761D1EA8ED9D0091A683</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DF5A76311EA8ED9E0091A683</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DF5A763C1EA8ED9E0091A683</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
