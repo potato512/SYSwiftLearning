@@ -37,6 +37,12 @@ class ViewController: UIViewController {
         }
         6 函数调用，直接使用定义的函数名称使用
         
+        7 函数如果是类方法，即+方法时，定义时添加关键字class：
+        class func funcname(形参) -> returnType
+        {
+        
+        }
+        
         */
         
         // 没有返回值
