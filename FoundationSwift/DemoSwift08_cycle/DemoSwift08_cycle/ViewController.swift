@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        
+      
         /*
         swift中的循环语句主要有以下几种类型
         1、for语句，遍历一个集合里面的所有元素，例如由数字表示的区间、数组中的元素、字符串中的字符。
