@@ -68,7 +68,7 @@ swift纯代码开发学习（foundation、UIKit等）
 
   *（1）手势
 
-  *（2）通知NSNotificationCenter
+  *（2）通知NSNotificationCenter——完成20170517
 
   *（3）计时器NSTimer——完成20170420
 
@@ -84,7 +84,7 @@ swift纯代码开发学习（foundation、UIKit等）
 
   *（9）NSDate&NSDateFormatter——完成20170515
 
-  *（10）沙盒路径
+  *（10）沙盒路径——完成20170517
 
   *（11）线程
 
@@ -96,13 +96,17 @@ swift纯代码开发学习（foundation、UIKit等）
 
   *（1）userdefault——完成20161121
 
-  *（2）plist
+  *（2）plist——完成20170517
 
   *（3）coreData
 
   *（4）sqlite
 
   *（5）keychain
+
+  *（6）writeFile——完成20170517
+
+  *（7）Archive——完成20170517
 
   *……
 

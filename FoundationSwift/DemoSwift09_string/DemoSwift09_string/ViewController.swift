@@ -22,6 +22,16 @@ class ViewController: UIViewController {
         // 2 String 实例化
         name = String("Hello, DevZhang")
         print(name)
+        // 3 拼接
+        name += "age：30."
+        print(name)
+        // 4 格式化
+        let workAge = 10
+        var workAgeString = "\(workAge)"
+        print(workAgeString)
+        workAgeString = String(format: "%d", arguments: [workAge])
+        print(workAgeString)
+    
         
         // 字符串的操作
         // 字符串追加字符串
@@ -242,7 +252,7 @@ class ViewController: UIViewController {
         
         
         // 字符串转换成NSData
-        var str061:String = "String to encode data"
+        let str061:String = "String to encode data"
         print(str061)
         let data = str061.dataUsingEncoding(NSUTF8StringEncoding)
         print(data)
