@@ -50,8 +50,16 @@ class ViewController: UIViewController, UIAlertViewDelegate, UIActionSheetDelega
 //        let alertView = UIAlertView(title: alertTitle, message: alertMessage, delegate: self, cancelButtonTitle: alertCancel, otherButtonTitles: alertOK, "提示", "通告", "警告")
 //        alertView.show()
         
-        
         // 方法3
+//        let alertView = UIAlertView()
+//        alertView.title = "开始！"
+//        alertView.message = "游戏就要开始，你准备好了吗？"
+//        alertView.addButtonWithTitle("Ready Go!")
+//        alertView.addButtonWithTitle("Cancel")
+//        alertView.delegate = self
+//        alertView.show()
+        
+        // 方法4
         // 1 实例化
         let alertVC = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.Alert)
         // 2 带输入框
@@ -79,10 +87,14 @@ class ViewController: UIViewController, UIAlertViewDelegate, UIActionSheetDelega
         alertVC.addAction(alertActionOK)
         // 4 跳转显示
         self.presentViewController(alertVC, animated: true, completion: nil)
+        
     }
     
     // MARK: UIAlertViewDelegate
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        
+        print("click \(buttonIndex)")
+        
         let buttonTitle = alertView.buttonTitleAtIndex(buttonIndex)
         if buttonTitle == alertCancel
         {
