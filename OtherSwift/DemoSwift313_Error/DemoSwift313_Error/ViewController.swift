@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         
         self.title = "error异常处理"
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "click", style: .Done, target: self, action: #selector(ViewController.buttonClick))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "click", style: .Done, target: self, action: Selector("buttonClick"))
     }
 
     override func didReceiveMemoryWarning() {

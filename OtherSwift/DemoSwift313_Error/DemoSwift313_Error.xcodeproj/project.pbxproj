@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A7D0BD681EEFD92B0067D96F /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D0BD671EEFD92B0067D96F /* Person.swift */; };
 		DF438DCC1EE9A5AB008020F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF438DCB1EE9A5AB008020F6 /* AppDelegate.swift */; };
 		DF438DCE1EE9A5AB008020F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF438DCD1EE9A5AB008020F6 /* ViewController.swift */; };
 		DF438DD31EE9A5AB008020F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF438DD21EE9A5AB008020F6 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A7D0BD671EEFD92B0067D96F /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		DF438DC81EE9A5AB008020F6 /* DemoSwift313_Error.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoSwift313_Error.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF438DCB1EE9A5AB008020F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF438DCD1EE9A5AB008020F6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				DF438DCB1EE9A5AB008020F6 /* AppDelegate.swift */,
 				DF438DCD1EE9A5AB008020F6 /* ViewController.swift */,
 				DF438DF91EE9ACA8008020F6 /* ErrorVC.swift */,
+				A7D0BD671EEFD92B0067D96F /* Person.swift */,
 				DF438DD21EE9A5AB008020F6 /* Assets.xcassets */,
 				DF438DD41EE9A5AB008020F6 /* LaunchScreen.storyboard */,
 				DF438DD71EE9A5AB008020F6 /* Info.plist */,
@@ -257,6 +260,7 @@
 			files = (
 				DF438DCE1EE9A5AB008020F6 /* ViewController.swift in Sources */,
 				DF438DFA1EE9ACA8008020F6 /* ErrorVC.swift in Sources */,
+				A7D0BD681EEFD92B0067D96F /* Person.swift in Sources */,
 				DF438DCC1EE9A5AB008020F6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,7 +345,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -380,7 +384,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -474,6 +478,7 @@
 				DF438DF21EE9A5AB008020F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DF438DF31EE9A5AB008020F6 /* Build configuration list for PBXNativeTarget "DemoSwift313_ErrorTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +487,7 @@
 				DF438DF51EE9A5AB008020F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DF438DF61EE9A5AB008020F6 /* Build configuration list for PBXNativeTarget "DemoSwift313_ErrorUITests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +496,7 @@
 				DF438DF81EE9A5AB008020F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

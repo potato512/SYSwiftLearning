@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow.init(frame: UIScreen.mainScreen().bounds)
         self.window?.backgroundColor = UIColor.whiteColor()
         self.window?.rootViewController = rootNav
-        self.window?.makeKeyWindow()
+        self.window?.makeKeyAndVisible()
         
         return true
     }
