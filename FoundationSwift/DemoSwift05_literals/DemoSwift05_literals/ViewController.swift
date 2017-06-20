@@ -54,23 +54,23 @@ class ViewController: UIViewController {
         */
         
         // 整型字面常量
-        let age = 10
+        let age:Int = 10
         print(age)
         
         // 浮点型字面常量
-        let money = 103.1231
+        let money:CGFloat = 103.1231
         print(money)
         
         // 字符串型字面常量
-        let name = "DevZhang"
+        let name:String = "DevZhang"
         print(name)
-        let work = "I am \"\(name)\",I am from meizhou"
+        let work:String = "I am \"\(name)\",I am from meizhou"
         print(work)
         
         // 布尔型字面常量
-        let isWorking = false
+        let isWorking:Bool = false
         print(isWorking)
-        let isSleeping = true
+        let isSleeping:Bool = true
         print(isSleeping)
     }
 

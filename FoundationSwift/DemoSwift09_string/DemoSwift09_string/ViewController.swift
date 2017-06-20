@@ -15,6 +15,27 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         
+        // 字符（注意：字符中只能有一个字符，不能有两个及以上）
+        let charA:Character = "A"
+        print(charA)
+        
+        // 字符转换成字符串
+        let valid = String(charA)
+        print(valid)
+        
+        // 获取字符串中指定索引处的字符
+        let charName = valid[valid.startIndex]
+        print(charName)
+        
+        // 字符串转换成字符
+        for charTmp in valid.characters
+        {
+            print("char = \(charTmp)")
+        }
+
+        
+        
+        
         // 字符串的定义
         // 1 使用字符串字面量
         var name = "DevZhang"
@@ -22,31 +43,64 @@ class ViewController: UIViewController {
         // 2 String 实例化
         name = String("Hello, DevZhang")
         print(name)
-        // 3 拼接
-        name += "age：30."
-        print(name)
-        // 4 格式化
+        // 3 格式化
         let workAge = 10
         var workAgeString = "\(workAge)"
         print(workAgeString)
+        // 4
         workAgeString = String(format: "%d", arguments: [workAge])
         print(workAgeString)
     
         
+        // 字符串索引：index不能是整数
+        var nameIndex = name[name.startIndex]
+        print("name index = \(nameIndex)")
+        nameIndex = name[name.startIndex.advancedBy(2)]
+        print("name index = \(nameIndex)")
+        nameIndex = name[name.endIndex.advancedBy(-1)]
+        print("name index = \(nameIndex)")
+        
+        
         // 字符串的操作
-        // 字符串追加字符串
+        // 拼接字符串：+
         name = name + ".where are you from?"
         print(name)
+        // 拼接字符：append
+        let nameChar:Character = "."
+        name.append(nameChar)
+        print(name)
+        // 数据转字符串：join
+        let nameArray:[String] = ["123", "234", "345"]
+        let nameMark:String = ","
+        name += nameArray.joinWithSeparator(nameMark)
+        print("拼接：name = \(name)")
+        // 插入字符：插入指定位置
+        name.insert(".", atIndex: name.endIndex)
+        print("插入：name = \(name)")
+        name.insertContentsOf(name.characters, at: name.endIndex)
+        print("插入：name = \(name)")
+        // 删除字符串
+        let nameDelChar:Character! = name.removeAtIndex(name.startIndex.advancedBy(10))
+        print("删除：name = \(nameDelChar)")
+        let range:Range? = name.rangeOfString(".DevZhang")
+        if range != nil
+        {
+            name.removeRange(range!)
+        }
+        print("删除：name = \(name)")
+        name.removeAll()
+        print("删除：name = \(name)")
+        name += "hello, devZhang.where are you from?"
 
         
         // 是否包含子串
-        let range = name.rangeOfString("DevZhang")
-        if range != nil
+        let rangeDevZhang = name.rangeOfString("DevZhang")
+        if rangeDevZhang != nil
         {
-            print(range)
+            print(rangeDevZhang)
             
-            let indexStart = range!.startIndex
-            let indexEnd = range!.endIndex
+            let indexStart = rangeDevZhang!.startIndex
+            let indexEnd = rangeDevZhang!.endIndex
             let indexLength = 0 // indexEnd - indexStart
             print("index start = \(indexStart), end = \(indexEnd), length = \(indexLength)")
         }
@@ -108,8 +162,6 @@ class ViewController: UIViewController {
         // 字符串小写转换大写
         name = name.uppercaseString
         print(name)
-        
-        // 字符串大写转换小写
         name = name.lowercaseString
         print(name)
         
@@ -118,15 +170,19 @@ class ViewController: UIViewController {
         let lengthName = name.characters.count
         print("\(name) 的长度是 \(lengthName)")
         
-        // Unicode编码
-        for codeUTF8 in name.utf8
+        
+        // 遍历
+        // 字符遍历
+        print("字符遍历")
+        for char in name.characters
         {
-            print("\(codeUTF8) ")
+            print(char)
         }
-        print("")
-        for codeUTF16 in name.utf16
+        // unicode遍历：utf8、utf16、unicodeScalars
+        print("unicode遍历")
+        for code in name.unicodeScalars
         {
-            print("\(codeUTF16) ")
+            print(code)
         }
         
         
@@ -141,27 +197,9 @@ class ViewController: UIViewController {
             print("name is no nil")
         }
         
-        // 字符串前缀
-        if name.hasPrefix("Hello")
-        {
-            print("有对应的 Hello 前缀")
-        }
-        else
-        {
-            print("没有对应的 Hello 前缀")
-        }
         
-        // 字符串后缀
-        if name.hasSuffix("from")
-        {
-            print("有对应的 from 后缀")
-        }
-        else
-        {
-            print("没有对应的 from 后缀")
-        }
-        
-        // 字符串比较
+        // 字符串比较：字符串比较、字符串前缀、字符串后缀
+        // 1 字符串字符相等：==、>、<、>=、<=、!=
         let varA   = "Hello, Swift!"
         let varB   = "Hello, Objective-C!"
         
@@ -195,6 +233,27 @@ class ViewController: UIViewController {
             print("\(varA) 小于 \(varB)")
         }
         
+        // 2 字符串前缀相等：hasPrefix
+        if name.hasPrefix("Hello")
+        {
+            print("有对应的 Hello 前缀")
+        }
+        else
+        {
+            print("没有对应的 Hello 前缀")
+        }
+        
+        // 3 字符串后缀相等：hasSuffix
+        if name.hasSuffix("from")
+        {
+            print("有对应的 from 后缀")
+        }
+        else
+        {
+            print("没有对应的 from 后缀")
+        }
+
+        
         
         // 数值型字符串转换成Int/Long/Float/Double/Bool等（注意：转换值必须添加optional选项" ! "，或" ? "）
         let moneyStr:String = String("3025.56")
@@ -205,35 +264,9 @@ class ViewController: UIViewController {
         let moneyNum03:String = "1000"
         let moneyNum04:Int32 = (moneyNum03 as NSString).intValue
         print(moneyNum04)
-        let valid:String = "true"
-        let isValid:Bool! = (valid as NSString).boolValue
+        let validText:String = "true"
+        let isValid:Bool! = (validText as NSString).boolValue
         print(isValid)
-        
-        
-        
-        // 字符（注意：字符中只能有一个字符，不能有两个及以上）
-        let charA:Character = "A"
-        print(charA)
-        
-        // 字符转换成字符串
-        name = String(charA)
-        print(name)
-        
-        // 获取字符串中指定索引处的字符
-        let charName = name[name.startIndex]
-        print(charName)
-        
-        // 字符串转换成字符
-        for charTmp in valid.characters
-        {
-            print("char = \(charTmp)")
-        }
-        
-        // 字符串添加字符
-        name.append(charA)
-        print(name)
-        name = String("\(name)\(charA)")
-        print(name)
         
         
         

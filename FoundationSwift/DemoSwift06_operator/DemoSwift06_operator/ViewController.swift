@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         */
         
         
-        // 算术运算符：
+        // 算术运算符：+、-、*、/、%、++、--
         var num011:Int = 10
         var num012:Int = 4
         var numResult:Int?
@@ -61,7 +61,9 @@ class ViewController: UIViewController {
         print(num012)
         
         
-        // 比较运算符：
+        
+        
+        // 关系运算符：>、<、>=、<=、==、!=、?:
         let num021 = 10
         let num022 = 5
         
@@ -83,8 +85,14 @@ class ViewController: UIViewController {
         // <= 小于等于
         print("\(num021) <= \(num022) 的结果为：\(num021 <= num022)")
         
+        // ?: 三目运算符
+        let maxNum = num021 > num022 ? num021 : num022
+        print(maxNum)
         
-        // 逻辑运算符（参数类型必须为bool布尔值类型）
+        
+        
+        
+        // 逻辑运算符（参数类型必须为bool布尔值类型）：!、&&、||
         let num031 = true
         let num032 = false
         
@@ -98,7 +106,9 @@ class ViewController: UIViewController {
         print("!\(num031) 的结果为：\(!num031)")
         
         
-        // 位运算符（对二进制进行操作）
+        
+        
+        // 位运算符（对二进制进行操作）：&、|、^、<<、>>
         let num041 = 60 // 0011 1100
         let num042 = 13 // 0000 1101
         
@@ -121,9 +131,11 @@ class ViewController: UIViewController {
         print("\(num041) >> \(num042) 的结果为：\(num041 >> num042)")
         
         
-        // 赋值运算符
-        var num051 = 5
-        var num052 = 3
+        
+        
+        // 赋值运算符：=、+=、-=、*=、/=、%=
+        let num051 = 5
+        let num052 = 3
         var num053:Int
         
         // = 简单的赋值运算，指定右边操作数赋值给左边的操作数
@@ -149,6 +161,8 @@ class ViewController: UIViewController {
         // %= 求余后再赋值，将左右两边的操作数求余后再赋值给左边的操作数
         num053 %= num051
         print("num053 = \(num053)")
+        
+        
         
         // <<= 按位左移后再赋值
         num053 <<= num051

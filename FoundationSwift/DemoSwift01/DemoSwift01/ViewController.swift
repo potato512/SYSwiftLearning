@@ -50,6 +50,11 @@ class ViewController: UIViewController {
         let money:Float = 125.32
         print(money)
         
+        let haha:Int = Int(money)
+        print(haha)
+        
+        
+        
         // bool布尔值（必须使用true，false，或1，0。不能使用YES，NO）
         let isValid:Bool = true
         print(isValid)
@@ -57,16 +62,64 @@ class ViewController: UIViewController {
         let isTrue = 1
         print(isTrue)
         
-        // string字符串
-        let name = "DevZhang"
-        print(name)
         
-        let job:String = "iOS Dev"
-        print(job)
         
-        // 字符
-        let charName:Character = "z"
-        print(charName)
+        
+        // 元组
+        // 定义方法1 未声明参数名称，未声明数据类型
+        let student = ("devZhang", 65, 98,62)
+        // 定义方法2 声明参数名称，未声明数据类型
+        let student2 = (name:"devZhang", math:53, english:82, chinese:65)
+        // 定义方法3 声明参数名称，声明数据类型
+        let student3:(String, Int, Int, Int) = (name:"devZhang", math:53, english:82, chinese:65)
+        // 定义方法4 使用下划线"_"忽略未使用参数
+        let (studentName, _, _, _):(String, Int, Int, Int) = ("DevZhang", 45, 91, 71)
+
+        // 获取信息
+        print("\(student), \(student2), \(student3)")
+        
+        // 方法1 使用下标
+        print("1 name is \(student.0), math = \(student.1), english = \(student.2), chinese = \(student.3)")
+        // 方法2 使用参数名称（已声明参数名称，如定义方法2、3）
+        print("2 name is \(student2.name), math = \(student2.math), english = \(student2.english), chinese = \(student2.chinese)")
+        // 方法3 使用参数名称（已声明参数名称，但未声明元组变量名称，如定义方法4）
+        print(studentName)
+        
+        
+        
+        
+        // optionals可选值，即数据类型后添加关键字?表示该变量为可选值。主要用来处理值可能缺失的情况，即两种状态：有值，没有值nil。
+        // 可选值可以使用if语句进行判断
+        let className:String? = "class 8"
+        if (className != nil)
+        {
+            print("class name is \(className)")
+        }
+        // 可选值可以使用有感叹号!进行强制解析，强制解析时必须有值（如果可选值没有值时，强制解包会出现编译进行时异常crash）
+        let subClassName:String = className!
+        print("sub class name is \(subClassName)")
+        // 使用可选绑定（即不声明变量的数据类型），避免强制解包时的异常
+        if let subClassName2 = className
+        {
+            print(subClassName2)
+        }
+        // optionals可选值，数据类型后添加关键字!表示隐式解析，即确保变量总是有值，获取值时无需再进行解析。
+        let gladeName:String! = "glade 3"
+        print(gladeName)
+        
+        let subGladeName:String = gladeName
+        print(subGladeName)
+        
+        
+
+        
+        
+
+        
+        
+        
+//        var range:Range<Int> = Range(start: 0, end: 5)
+//        print(range)
     }
 
     override func didReceiveMemoryWarning() {
