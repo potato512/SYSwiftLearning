@@ -21,36 +21,38 @@ class ViewController: UIViewController {
         和数组中的数据项不同，字典中的数据项并没有具体顺序。我们在需要通过标识符（键）访问数据的时候使用字典，这种方法很大程度上和我们在现实世界中使用字典查字义的方法一样。
         Swift 字典的key没有类型限制可以是整型或字符串，但必须是唯一的。
         如果创建一个字典，并赋值给一个变量，则创建的字典就是可以修改的。这意味着在创建字典后，可以通过添加、删除、修改的方式改变字典里的项目。如果将一个字典赋值给常量，字典就不可修改，并且字典的大小和内容都不可以修改。
+        一个字典的Key类型必须遵循Hashable协议，就像Set的值类型。
         
         */
         
-        // 创建字典
-        // 创建一个特定类型的空字典，格式为：var dict = [KeyType: ValueType]()
-        // 创建一个空字典，键的类型为 Int，值的类型为 String 的简单语法：
-        var dict01 = [Int: String]()
+        // 创建字典 格式为：var dict = [KeyType: ValueType]()
+        // 创建空字典，键的类型为 Int，值的类型为 String 的简单语法：
+        let dict01 = [Int: String]()
         print(dict01)
         
-        // 创建一个字典的实例：
-        var dict02 :[Int:String] = [1:"One", 2:"Two", 3:"Three"]
+        // 创建字面量字典
+        var dict02:[Int:String] = [1:"One", 2:"Two", 3:"Three"]
         print(dict02)
         
         var dict03 = ["name":"DevZhang", "job":"iOSDev", "company":"VSTECS"]
         print(dict03)
         
-        // 访问字典
-        // 我们可以根据字典的索引来访问数组的元素，语法如下：var value = dict[key]
+        
+        
+        // 字典的操作
+        // 1 访问字典 根据字典的索引来访问数组的元素，语法如下：var value = dict[key]
         let value01 = dict02[1]
         print(value01)
         
         let value02 = dict03["name"]
         print(value02)
         
-        // 添加数据
+        // 2 添加数据
         let value03 = dict02.updateValue("Four", forKey: 4)
         print(value03)
         print(dict02)
         
-        // 修改字典
+        // 3 修改字典
         // 方法1 使用 updateValue(forKey:) 增加或更新字典的内容。如果 key 不存在，则添加值，如果存在则修改 key 对应的值。格式为：dict.updateValue(value, forKey:key)方法返回Optional值。
         var value04 = dict02.updateValue("TwoTmp", forKey: 2)
         print(dict02)
@@ -64,9 +66,7 @@ class ViewController: UIViewController {
         dict02[3] = "ThreeTmp" // 修改有效
         print(dict02)
         
-        
-        
-        // 移除 Key-Value 对
+        // 4 移除 Key-Value 对
         // 1 使用 removeValueForKey() 方法来移除字典 key-value 对。如果 key 存在该方法返回移除的值，如果不存在返回 nil 。
         let valueRemove01 = dict02.removeValueForKey(2)
         print(valueRemove01)
@@ -77,7 +77,9 @@ class ViewController: UIViewController {
         print(dict02)
         
         
-        // 遍历字典
+        
+        
+        // 字典遍历
         // 1 使用 for-in 循环来遍历某个字典中的键值对。
         for (key, value) in dict03
         {
@@ -97,6 +99,11 @@ class ViewController: UIViewController {
             print("key = \(key), value = \(value)")
         }
         
+        // 4 
+        for value in dict03.values
+        {
+            print("value = \(value) \n");
+        }
         
         // 字典转换为数组
         // 提取字典的键值(key-value)对，并转换为独立的数组。

@@ -29,6 +29,7 @@ class ViewController: UIViewController {
         */
         
         
+        // for循环
         for index in 1...5
         {
             print("index = \(index)")
@@ -80,22 +81,25 @@ class ViewController: UIViewController {
         }
         print("")
         
+        
+        // while循环
         var num = 0
+        print("while")
         while num < 20
         {
             print("num = \(num)")
             num++
         }
-        print("")
         
-        num = 2
+        print("repeat")
+        num = 10
         repeat
         {
             print("num = \(num)")
-            num++
+            num--
         }
-        while num < 1
-        print("")
+        while num > 1
+        
     }
 
     override func didReceiveMemoryWarning() {

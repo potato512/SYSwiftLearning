@@ -287,6 +287,7 @@ print("\(num041) >> \(num042) 的结果为：\(num041 >> num042)")
   * 删除元素：删除第一个、删除最后一个、删除指定下标位置、删除全部
   * 读取元素值：获取第一个、获取第二个、获取指定下标位置
 * 批量操作：修改元素
+* 其他属性：数组个数、数组是否为空
 * 数组排序
 * 数组与字条串的转换
   * 数组转字符串：componentsSeparatedByString
@@ -294,10 +295,81 @@ print("\(num041) >> \(num042) 的结果为：\(num041 >> num042)")
 
 
 ###### set
+* 初始化：有值（字面量）、无值
+* 集合的遍历：有序（指定排序方法）遍历、无序遍历
+* 集合的操作：
+  * 添加元素：如set.insert(value)
+  * 删除元素：如set.removeFirst()、或set.remove(value)、或set.removeAll()
+  * 获取元素：如let value = set[set.startIndex.advancedBy(1)]、或let value = set.maxElement()、或let value = set.minElement()
+* 集合的集操作：
+  * 交集：如let C = A.intersect(B)
+  * 非交集：如let C = A.exclusiveOr(B)
+  * 并集：如let C = A.union(B)
+  * 差集：如let C = A.subtract(B)
+  * 是否相等：如let isTrue = (A == B)
+  * 是否是子集：如let isTrue = A.isSubsetOf(B)
+  * 是否超集：如let isTrue = A.isSupersetOf(B)
+  * 一个集合是否是另外一个集合的子集合或者父集合并且两个集合并不相等：如let isTrue = A.isStrictSubsetOf(B)
+  * 含有不同的值：如let isTrue = A.isDisjointWith(B)
+* 集合与数组的相互转换
+* 集合的其他属性：是否为空、集合元素个数、是否包含某个元素
+
+
 
 ###### 字典
+* 初始化：空值（不可修改）、字面量初始化有值（可修改）
+* 字典的遍历
+* 字典的操作：
+  * 添加元素：通过key添加，如let value = dict.updateValue(value, forKey:key)
+  * 修改元素：通过key修改，如dict[key] = value，或let value = dict.updateValue(value, forKey:key)
+  * 删除元素：删除指定key对应的值，如let value = dict.removeValueForKey(key)，或dict[key] = nil;
+  * 读取元素值：通过key来获取，如let value = dict[key]
+* 其他属性：字典个数、字典是否为空
 
-###### 基本数据类型：整数类型、小数类型
+
+
+###### 结构语句
+* 条件语句
+  * if () {}
+  * if () {} else {}
+  * if () {} else if () {}
+  * if () {} else if () {} else {}
+* 选择语句：
+  * 通常用switch语句替换if语句
+  * 判断值既可以是基本数据型，也可以是字符，或字符串
+  * 可以不以break结束
+  * 可以区间匹配"case n1...n2:"，或"case n1..<n2:"；以及复合匹配"case n1,n2,n3:"
+  * switch () {case n1:xxx case:n2,n3,n4:xxx case n5...n7:xxx case n8..<n10:xxx default:xxx}
+* 值绑定，同时可结合where判断额外条件，如：
+~~~ javascript
+let anotherPoint = (2, 0)
+switch anotherPoint
+{
+    case (let x, 0):
+        print("on the x-axis with an x value of \(x)")
+    case (0, let y):
+        print("on the y-axis with a y value of \(y)")
+    case let (x, y):
+        print("somewhere else at (\(x), \(y))")
+    
+    case let (x, y) where x == y:
+        print("(\(x), \(y)) is on the line x == y")
+    case let (x, y) where x == -y:
+        print("(\(x), \(y)) is on the line x == -y")
+    case let (x, y):
+        print("(\(x), \(y)) is just some arbitrary point")
+}
+~~~
+* 循环语句
+  * for语句
+  * for (index in n1...n2) {}
+  * for (index in n1..<n2) {}
+  * for (index in nn) {}
+  * for ((n1,n2) in nn) {}
+* while语句
+  * while () {}
+  * repeat {} while ()
+
 
 ###### 基本数据类型：整数类型、小数类型
 

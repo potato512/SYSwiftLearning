@@ -31,35 +31,34 @@ class ViewController: UIViewController {
         */
         
         
-        // 空集合
+        // 初始化集合（Initializing An Empty Set）
+        // 1 空集合
         var emptySet = Set<Int>()
         print(emptySet)
-
+        // 2
         emptySet = []
         print(emptySet)
-        
-        
-        // 初始化集合（Initializing An Empty Set）
-        // 用数组构造集合
+        // 3 用数组构造集合
         let set01:Set<String> = ["1", "2"]
         print(set01)
-        
-        // 如果元素都是相同类型，带有初始化，可以省略类型
+        // 4 如果元素都是相同类型，带有初始化，可以省略类型
         let set02:Set = ["101", "102"]
         print(set02)
-        
-        // 重复的数据会被自动去重
+        // 5 重复的数据会被自动去重
         var set03:Set<String> = ["1", "2", "3", "1"]
         print(set03)
         
         
-        // 添加元素
+        
+        // 集合的操作
+        
+        // 1 添加元素
         set03.insert("10")
         print(set03)
         
-        // 修改元素
+        // 2 修改元素
         
-        // 获取元素
+        // 3 获取元素
         let value01 = set03[set03.startIndex.advancedBy(1)]
         print(value01)
         
@@ -68,7 +67,7 @@ class ViewController: UIViewController {
         let value03 = set03.minElement()
         print("最小值 \(value03)")
 
-        // 删除元素
+        // 4 删除元素
         set03.removeFirst()
         print("删除第一个元素")
         
@@ -76,25 +75,24 @@ class ViewController: UIViewController {
         print("删除元素 1")
         print(set03)
         
-//        set03.removeAtIndex(set03.indexOf(2)!)
-//        print("删除下标为2的元素")
-//        print(set03)
-        
-        
         set03.removeAll()
         print("删除全部元素")
         
         set03 = ["1", "2", "3", "1", "4", "5", "6"]
+
         
-        // 是否包含其他元素
+        
+        // 集合的其他属性
+        
+        // 1 是否包含其他元素
         let isContant = set03.contains("1")
         print(isContant)
         
-        // 个数
+        // 2 集合的个数
         let count = set03.count
         print(count)
         
-        // 是否空集合
+        // 3 是否空集合
         let isEmptyTrue = set03.isEmpty
         print(isEmptyTrue)
         
@@ -103,53 +101,61 @@ class ViewController: UIViewController {
         
         print("set01 = \(set01)")
         print("set03 = \(set03)")
-        // 交集：使用intersect(_:)方法根据两个集合中都包含的值创建的一个新的集合
+        
+        
+        
+        
+        // 集合的集操作
+        // 1 交集：使用intersect(_:)方法根据两个集合中都包含的值创建的一个新的集合
         let set04 = set01.intersect(set03)
         print("交集 \(set04)")
         
-        // 非交集：使用exclusiveOr(_:)方法根据在一个集合中但不在两个集合中的值创建一个新的集合
+        // 2 非交集：使用exclusiveOr(_:)方法根据在一个集合中但不在两个集合中的值创建一个新的集合
         let set05 = set01.exclusiveOr(set03)
         print("非交集 \(set05)")
         
-        // 并集：使用union(_:)方法根据两个集合的值创建一个新的集合
+        // 3 并集：使用union(_:)方法根据两个集合的值创建一个新的集合
         let set06 = set01.union(set03)
         print("并集 \(set06)")
         
-        // 差集：使用subtract(_:)方法根据不在该集合中的值创建一个新的集合
+        // 4 差集：使用subtract(_:)方法根据不在该集合中的值创建一个新的集合
         let set07 = set01.subtract(set03)
         print("差集 \(set07)")
         
-        // 两个集合是否相等，使用\==来判断
+        // 5 两个集合是否相等，使用\==来判断
         var isTrue01 = (set01 == set03)
         print(isTrue01)
         
-        // 是否为子集，使用isSubsetOf(_:)方法来判断
+        // 6 是否为子集，使用isSubsetOf(_:)方法来判断
         isTrue01 = set03.isSubsetOf(set01)
         print(isTrue01)
         
-        // 是否为超集，使用isSupersetOf(_:)方法来判断
+        // 7 是否为超集，使用isSupersetOf(_:)方法来判断
         isTrue01 = set03.isSupersetOf(set01)
         print(isTrue01)
         
-        // 使用isStrictSubsetOf(_:)或者isStrictSupersetOf(_:)方法来判断一个集合是否是另外一个集合的子集合或者父集合并且两个集合并不相等。
+        // 8 使用isStrictSubsetOf(_:)或者isStrictSupersetOf(_:)方法来判断一个集合是否是另外一个集合的子集合或者父集合并且两个集合并不相等。
         isTrue01 = set03.isStrictSubsetOf(set01)
         print(isTrue01)
         
         isTrue01 = set03.isStrictSupersetOf(set01)
         print(isTrue01)
         
-        // 使用isDisjointWith(_:)方法来判断两个集合是否不含有相同的值。
+        // 9 使用isDisjointWith(_:)方法来判断两个集合是否不含有相同的值。
         isTrue01 = set03.isDisjointWith(set01)
         print(isTrue01)
         
         
-        // 遍历 for-in 语法
+        
+        
+        // 集合的遍历
+        // 1 遍历 for-in 语法
         for value in set03
         {
             print(value)
         }
 
-        // 有序 sort方法
+        // 2 有序 指定排序sort方法
         for value in set03.sort({
             (value1, value2) -> Bool in
             
@@ -160,8 +166,9 @@ class ViewController: UIViewController {
             print(value)
         }
         
-        // 直接使用sort无参数（默认为asc升序）
-        for value in set03.sort() {
+        // 3 直接使用sort无参数（默认为asc升序）
+        for value in set03.sort()
+        {
             print(value)
         }
 
@@ -169,6 +176,8 @@ class ViewController: UIViewController {
         {
             print("for-i-in" + set03[i])
         }
+        
+        
         
         // set与array的转换
         // array转换成set
