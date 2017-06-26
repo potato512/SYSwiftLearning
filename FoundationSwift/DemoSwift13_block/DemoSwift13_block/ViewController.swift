@@ -8,8 +8,15 @@
 
 import UIKit
 
+// block定义
+typealias BlockTarget = (String) -> (Void)
+
+
 class ViewController: UIViewController {
 
+    // 定义成变量
+    var blockTarget:BlockTarget?
+    var blockAction:((String) -> (Void))?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -139,6 +146,27 @@ class ViewController: UIViewController {
         let resversed05 = makeIncrementor(forIncrement: 10)
         print(resversed05)
         
+        
+        // block 函数
+        self.blockHandle {
+            () -> Void in
+            print("block方法：没有参数的……")
+        }
+
+        self.resultImageUrl(url: "http://www.hao123.com") {
+            (url:NSURL) -> Void in
+            print("url is \(url)")
+        }
+        
+        // block属性
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "block", style: .Done, target: self, action: Selector("blockClick"))
+        self.blockTarget = { text -> Void in
+            print("text = \(text)")
+        }
+        self.blockAction = { text -> Void in
+            print("action = \(text)")
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -148,6 +176,37 @@ class ViewController: UIViewController {
 
     override func viewWillAppear(animated: Bool) {
 
+    }
+    
+    
+    // MARK: - block函数
+    // 传入两个整形数，输出这个两个数之和，加上这两个数之积，得到的结果
+//    func resultNumber(number1 a:Int, number2 b:Int, handle:() -> Int)
+//    {
+//        return a + b + (a * b)
+//    }
+    
+    // 无参数
+    func blockHandle(handle:(Void) -> Void)
+    {
+        print("block方法：没有参数的……")
+        handle()
+    }
+    
+    // 带参数
+    func resultImageUrl(url url:String, handle:(NSURL) -> Void)
+    {
+        let nsurl = NSURL(string: url)
+        print("NSURL = \(nsurl)")
+        handle(nsurl!)
+    }
+    
+    // 属性
+    func blockClick()
+    {
+        self.blockTarget?("block click")
+        
+        self.blockAction?("black action")
     }
 
 }
