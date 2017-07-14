@@ -119,13 +119,13 @@ class CABasicAnimationVC: UIViewController {
     }
 
     /*
-    1，CABasicAnimation类只有三个属性：
+    1、CABasicAnimation类只有三个属性：
     fromValue：开始值
     toValue：结束值
     Duration：动画的时间
     repeatCount：重复次数
     
-    2，通过animationWithKeyPath键值对的方式设置不同的动画效果
+    2、通过animationWithKeyPath键值对的方式设置不同的动画效果
     transform.scale
     transform.scale.x
     transform.scale.y

@@ -152,7 +152,7 @@ calculationMode : 动画计算方式
 values：每一个关键帧（设置了path，将忽略values）
 removedOnCompletion：执行完之后不删除动画
 fillMode：执行完之后保存最新的状态
-
+delegate：代理
 
 */
 
