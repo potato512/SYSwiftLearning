@@ -66,7 +66,7 @@ swift纯代码开发学习（foundation、UIKit等）
 
  * 三、其他
 
-  *（1）手势
+  *（1）手势——完成20170713
 
   *（2）通知NSNotificationCenter——完成20170517
 

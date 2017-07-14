@@ -160,10 +160,12 @@ class ViewController: UIViewController {
         
         // block属性
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "block", style: .Done, target: self, action: Selector("blockClick"))
-        self.blockTarget = { text -> Void in
+        self.blockTarget = {
+            text -> Void in
             print("text = \(text)")
         }
-        self.blockAction = { text -> Void in
+        self.blockAction = {
+            text -> Void in
             print("action = \(text)")
         }
         
