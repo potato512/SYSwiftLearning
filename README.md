@@ -78,7 +78,7 @@ swift纯代码开发学习（foundation、UIKit等）
 
   *（6）CGPoint
 
-  *（7）动画
+  *（7）动画——完成20170714
 
   *（8）NSData
 
