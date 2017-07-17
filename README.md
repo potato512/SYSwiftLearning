@@ -114,13 +114,13 @@ swift纯代码开发学习（foundation、UIKit等）
 
  * 五、网络
 
-  *（1）NSURL
+  *（1）NSURL——完成20170717
 
-  *（2）NSURLRequest
+  *（2）NSURLRequest——完成20170717
 
-  *（3）NSURLConnection
+  *（3）NSURLConnection——完成20170717
 
-  *（4）NSURLSession
+  *（4）NSURLSession——完成20170717
 
   *……
 
