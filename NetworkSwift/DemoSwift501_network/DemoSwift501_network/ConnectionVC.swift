@@ -17,7 +17,7 @@ class ConnectionVC: UIViewController, UITableViewDelegate, UITableViewDataSource
 
         // Do any additional setup after loading the view.
         
-        self.title = "网络请求"
+        self.title = "NSURLConnection"
         
         self.array = ["get无参数", "get有参数", "post无参数", "post有参数"]
         
@@ -94,6 +94,14 @@ class ConnectionVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                 
                 let result:NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! NSDictionary
                 print(result)
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    () -> Void in
+                    let message:String = result.objectForKey("msg") as! String
+                    let alert = UIAlertView(title: nil, message: message, delegate: nil, cancelButtonTitle: "OK")
+                    alert.show()
+                })
+                
             } catch {
                 
             }
@@ -103,31 +111,36 @@ class ConnectionVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     func requestWithGetParams()
     {
         // NSURL
-//        let url:NSURL = NSURL(string:"http://rapapi.org/mockjsdata/22598/userloginGetWithParams?userName='devZhang'&userPassword='devZhang'")!
-//        // NSURLRequest
-//        let request:NSMutableURLRequest = NSMutableURLRequest(URL:url)
-//        request.HTTPMethod = "GET"
-//        // 请求的Header
-//        request.addValue("a566eb03378211f7dc9ff15ca78c2d93", forHTTPHeaderField: "apikey")
-//        // NSURLSession
-//        let configuration:NSURLSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
-//        let session:NSURLSession = NSURLSession(configuration: configuration)
-//        
-//        // NSURLSessionTask
-//        let task:NSURLSessionDataTask = session.dataTaskWithRequest(request, completionHandler: {
-//            (data:NSData?,response:NSURLResponse?, error:NSError?) -> Void in
-//            if error == nil
-//            {
-//                do {
-//                    let responseData:NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! NSDictionary
-//                    print(responseData)
-//                } catch {
-//                    
-//                }
-//            }
-//        })
-//        // 启动任务
-//        task.resume()
+        let url:NSURL = NSURL(string:"http://rapapi.org/mockjsdata/22598/userloginGetWithParams?userName='devZhang'&userPassword='devZhang'")!
+        // 请求(可以改的请求)
+        let request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
+        // 默认就是GET请求
+        request.HTTPMethod = "GET"
+        // 发起请求
+        NSURLConnection.sendAsynchronousRequest(request, queue:NSOperationQueue()) {
+            (response, data, error)in
+            
+            print(response)
+            print(data)
+            print(error)
+            
+            do {
+//                let result = NSString(data: data!, encoding:NSUTF8StringEncoding)
+                
+                let result:NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! NSDictionary
+                print(result)
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    () -> Void in
+                    let message:String = result.objectForKey("msg") as! String
+                    let alert = UIAlertView(title: nil, message: message, delegate: nil, cancelButtonTitle: "OK")
+                    alert.show()
+                })
+                
+            } catch {
+                
+            }
+        }
     }
     
     // MARK: - post
@@ -135,31 +148,37 @@ class ConnectionVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     func requestWithPost()
     {
         // NSURL
-//        let url:NSURL = NSURL(string:"http://rapapi.org/mockjsdata/22598/userloginPost")!
-//        // NSURLRequest
-//        let request:NSMutableURLRequest = NSMutableURLRequest(URL:url)
-//        request.HTTPMethod = "POST"
-//        let postString = ""
-//        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
-//        // NSURLSession
-//        let configuration:NSURLSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
-//        let session:NSURLSession = NSURLSession(configuration: configuration)
-//        
-//        // NSURLSessionTask
-//        let task:NSURLSessionDataTask = session.dataTaskWithRequest(request, completionHandler: {
-//            (data:NSData?,response:NSURLResponse?, error:NSError?) -> Void in
-//            if error == nil
-//            {
-//                do {
-//                    let responseData:NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! NSDictionary
-//                    print(responseData)
-//                } catch {
-//                    
-//                }
-//            }
-//        })
-//        // 启动任务
-//        task.resume()
+        let url:NSURL = NSURL(string:"http://rapapi.org/mockjsdata/22598/userloginPost")!
+        // 请求(可以改的请求)
+        let request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
+        // POST请求
+        request.HTTPMethod = "POST"
+        // 发起请求
+        NSURLConnection.sendAsynchronousRequest(request, queue:NSOperationQueue()) {
+            (response, data, error)in
+            
+            print(response)
+            print(data)
+            print(error)
+            
+            do {
+//                let result = NSString(data: data!, encoding:NSUTF8StringEncoding)
+                
+                let result:NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! NSDictionary
+                print(result)
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    () -> Void in
+                    let message:String = result.objectForKey("msg") as! String
+                    let alert = UIAlertView(title: nil, message: message, delegate: nil, cancelButtonTitle: "OK")
+                    alert.show()
+                })
+                
+            } catch {
+                
+            }
+            
+        }
     }
     
     func requestWithPostParams()
@@ -195,6 +214,14 @@ class ConnectionVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                 
                 let result:NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! NSDictionary
                 print(result)
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    () -> Void in
+                    let message:String = result.objectForKey("msg") as! String
+                    let alert = UIAlertView(title: nil, message: message, delegate: nil, cancelButtonTitle: "OK")
+                    alert.show()
+                })
+                
             } catch {
                 
             }

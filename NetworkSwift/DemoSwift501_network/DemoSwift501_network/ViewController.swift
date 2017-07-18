@@ -18,7 +18,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         self.title = "网络请求"
         
-        self.array = ["NSURL", "NSURLRequest", "NSURLConnection", "NSURLSession", "NSURLSessionDataTask"]
+        self.array = ["NSURL", "NSURLRequest", "NSURLConnection", "NSURLSessionDataTask", "Alamofire"]
         
         
         let table = UITableView(frame: self.view.bounds, style: .Plain)
@@ -53,7 +53,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let text:String = self.array[indexPath.row] as! String
         if text == "NSURLSessionDataTask"
         {
-            let nextVC = NetworkVC()
+            let nextVC = SessionDataTaskVC()
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
         else if text == "NSURLConnection"
@@ -61,13 +61,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let nextVC = ConnectionVC()
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
-        else if text == "post无参数"
+        else if text == "Alamofire"
         {
-            
+            let nextVC = AlamofireVC()
+            self.navigationController?.pushViewController(nextVC, animated: true)
         }
-        else if text == "post有参数"
+        else if text == "NSURLRequest"
         {
-            
+            let nextVC = RequestVC()
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        }
+        else if text == "NSURL"
+        {
+            let nextVC = URLVC()
+            self.navigationController?.pushViewController(nextVC, animated: true)
         }
     }
     

@@ -1,28 +1,31 @@
 //
-//  NetworkVC.swift
+//  AlamofireVC.swift
 //  DemoSwift501_network
 //
-//  Created by zhangshaoyu on 2017/7/17.
+//  Created by zhangshaoyu on 2017/7/18.
 //  Copyright © 2017年 zhangshaoyu. All rights reserved.
 //
 
 import UIKit
 
-class NetworkVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+// https://github.com/Alamofire/Alamofire
+
+
+
+class AlamofireVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var array:NSArray!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
+        // https://github.com/Alamofire/Alamofire
         
-        self.title = "网络请求"
-
-        self.array = ["get无参数", "get有参数", "post无参数", "post有参数"]
+        self.title = "Alamofire"
         
+        self.array = ["get无参数", "get有参数", "post无参数", "post有参数", "delegate有参数"]
         
         let table = UITableView(frame: self.view.bounds, style: .Plain)
         self.view.addSubview(table)
@@ -71,34 +74,31 @@ class NetworkVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.requestWithPostParams()
         }
     }
-    
+
     // MARK: - get
     
     func requestWithGet()
     {
         // NSURL
-        let url:NSURL = NSURL(string:"http://rapapi.org/mockjsdata/22598/userloginGet")!
-        // NSURLRequest
-        let request:NSURLRequest = NSURLRequest(URL:url)
-        // NSURLSession
-        let configuration:NSURLSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        let session:NSURLSession = NSURLSession(configuration: configuration)
+//        let url:NSURL = NSURL(string:"http://rapapi.org/mockjsdata/22598/userloginGet")!
         
-        // NSURLSessionTask
-        let task:NSURLSessionDataTask = session.dataTaskWithRequest(request, completionHandler: {
-            (data:NSData?,response:NSURLResponse?, error:NSError?) -> Void in
-            if error == nil
-            {
-                do {
-                    let responseData:NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! NSDictionary
-                    print(responseData)
-                } catch {
-                    
-                }
-            }
-        })
-        // 启动任务
-        task.resume()
+//        Alamofire.request("https://httpbin.org/get").responseJSON {
+//            
+//            response in
+//            print("Request: \(String(describing: response.request))")   // original url request
+//            print("Response: \(String(describing: response.response))") // http url response
+//            print("Result: \(response.result)")                         // response serialization result
+//            
+//            if let json = response.result.value
+//            {
+//                print("JSON: \(json)") // serialized json response
+//            }
+//            
+//            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8)
+//            {
+//                print("Data: \(utf8Text)") // original server data as UTF8 string
+//            }
+//        }
     }
     
     func requestWithGetParams()
@@ -172,8 +172,8 @@ class NetworkVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         request.HTTPMethod = "POST"
         // 参数
         // 方法1
-//        let postString = "userName=devZhang&userPassword=devZhang"
-//        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        //        let postString = "userName=devZhang&userPassword=devZhang"
+        //        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         // 方法2
         let postDic :NSDictionary = ["userName":"devZhang","userPassword":"devZhang"]
         do {
@@ -182,7 +182,7 @@ class NetworkVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         } catch {
             
         }
-
+        
         
         
         // NSURLSession
@@ -205,5 +205,4 @@ class NetworkVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // 启动任务
         task.resume()
     }
-
 }
