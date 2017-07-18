@@ -80,16 +80,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
 }
 
-/*
-
-http://blog.csdn.net/u013406800/article/details/54581108
-
-http://www.cnblogs.com/jadonblog/p/6945974.html
-
-http://blog.csdn.net/abcd2686529828/article/details/51323673
-
-
-*/
 
 
 
